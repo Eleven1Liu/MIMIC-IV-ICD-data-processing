@@ -1,0 +1,9 @@
+gensim==3.2.0
+jupyterlab
+nltk
+numpy
+pandas
+scikit-learn
+scipy
+tokenizers
+tqdm
