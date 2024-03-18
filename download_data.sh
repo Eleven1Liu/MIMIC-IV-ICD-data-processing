@@ -1,7 +1,8 @@
 #!/bin/bash
 
-MIMIC_3_DIR='./mimicdata/physionet.org/files/mimiciii/1.4'
-MIMIC_4_DIR='./mimicdata/physionet.org/files/mimiciv/2.2'
+MIMIC_DATA_DIR='./mimicdata/physionet.org/files'
+MIMIC_4_DIR=${MIMIC_DATA_DIR}/mimiciv/2.2
+# MIMIC_3_DIR=${MIMIC_DATA_DIR}/mimiciii/1.4
 
 USERNAME=$1
 stty -echo # disable bash output
@@ -16,4 +17,8 @@ wget -r -N -c -np --user $USERNAME --password $passwd https://physionet.org/file
 wget -r -N -c -np --user $USERNAME --password $passwd https://physionet.org/files/mimic-iv-note/2.2/note/discharge.csv.gz
 # wget -r -N -c -np --user $USERNAME --password $passwd https://physionet.org/files/mimiciii/1.4/NOTEEVENTS.csv.gz
 
-gzip -d ${MIMIC_4_DIR}/*/*.gz
+no | gzip -d -r ${MIMIC_DATA_DIR}
+
+# Move discharge summary to `MIMIC_4_DIR`/note
+mkdir -p ${MIMIC_4_DIR}/note
+mv ${MIMIC_DATA_DIR}/mimic-iv-note/2.2/note/discharge.csv ${MIMIC_4_DIR}/note
