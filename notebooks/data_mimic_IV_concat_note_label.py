@@ -102,11 +102,11 @@ def next_notes(notesfile):
     yield cur_subj, cur_text, cur_hadm
 
 
-run_icd9=concat_data(
-    labelsfile=f'{MIMIC_4_SAVE_DIR}/ALL_CODES_filtered.csv', 
-    notes_file=f'{MIMIC_4_SAVE_DIR}/disch_9_filtered.csv', 
-    output_note_labeled_file=f'{MIMIC_4_SAVE_DIR}/note_labels_icd9_filtered.csv'
-)
+# run_icd9=concat_data(
+#     labelsfile=f'{MIMIC_4_SAVE_DIR}/ALL_CODES_filtered.csv', 
+#     notes_file=f'{MIMIC_4_SAVE_DIR}/disch_9_filtered.csv', 
+#     output_note_labeled_file=f'{MIMIC_4_SAVE_DIR}/note_labels_icd9_filtered.csv'
+# )
 
 run_icd10=concat_data(
     labelsfile=f'{MIMIC_4_SAVE_DIR}/ALL_CODES_filtered.csv', 
